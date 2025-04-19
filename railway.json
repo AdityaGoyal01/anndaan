@@ -1,0 +1,11 @@
+{
+    "build": {
+      "builder": "nixpacks",
+      "buildCommand": "cd demo && ./mvnw install"
+    },
+    "deploy": {
+      "startCommand": "cd demo && ./mvnw spring-boot:run",
+      "rootDirectory": "demo"
+    }
+  }
+  
