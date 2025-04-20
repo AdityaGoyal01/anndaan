@@ -6,8 +6,10 @@ export default function Collect() {
 
 
     useEffect(() => {
-        
-        fetch(`${BASE_URL}/api/donations/collect`)
+        console.log("BASE_URL is", BASE_URL);
+        console.log("Calling:", ${BASE_URL}/api/donations/collect);
+
+        fetch(${BASE_URL}/api/donations/collect)
             .then((res) => res.json())
             .then((data) => setAvailableItems(data));
     }, []);
