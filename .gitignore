@@ -11,5 +11,4 @@ demo/target/
 
 # Ignore environment files
 project/.env
-demo/src/main/resources/application.properties
-demo/src/main/resources/application.yml
+
