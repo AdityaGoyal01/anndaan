@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 
 export default function DonateFood() {
@@ -12,9 +13,7 @@ export default function DonateFood() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-
-        const response = await fetch(`${BASE_URL}/api/donations/donate`, {
+        const response = await fetch("http://localhost:8080/api/donations/donate", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(donation)
@@ -33,8 +32,22 @@ export default function DonateFood() {
        
 
         <div className="flex justify-center items-center min-h-screen">
-            <div className="max-w-5xl ml-[420px] justify-center items-center min-h-screen  w-full mx-auto p-6 bg-white mb-10 shadow-lg rounded-lg mt-8">
-            <h1 classname="font-bold text-gray-400">Donate Food</h1>
+
+            <div className="w-full max-w-5xl ml-20 mt-0.5 mb-10 px-6  text-center">
+            <h2 className="text-7xl font-extrabold text-green-600">Make a Difference Today</h2>
+            <p className="text-lg mt-4 text-gray-600">
+                Join us in reducing food waste and feeding those in need. Your donation can bring a smile to someone’s face.
+            </p>
+            <img 
+                src="https://tse3.mm.bing.net/th?id=OIP.91mqUxaCfB9XGVyKO1wB6QHaEc&pid=Api&P=0&h=180" 
+                alt="Donate Food" 
+                className="w-full h-45 object-cover rounded-lg shadow-md mt-6"
+            />
+            </div>
+
+
+            <div className="max-w-5xl ml-[150px] justify-center items-center min-h-screen  w-full mx-auto p-6 bg-white mb-10 shadow-lg rounded-lg mt-8">
+            <h1 classname="text-gray-600">Donate Food</h1>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                     <label className="block font-medium text-gray-700">Food Name:</label>
@@ -75,6 +88,15 @@ export default function DonateFood() {
                         value={donation.description} 
                         onChange={(e) => setDonation({ ...donation, description: e.target.value })}
                         className="w-full p-6 border rounded-md bg-blue-100 text-black"
+                    />
+                </div>
+
+                <div>
+                    <label className="block font-medium text-gray-700">Donor-Name:</label>
+                    <textarea 
+                        value={donation.donorName} 
+                        onChange={(e) => setDonation({ ...donation, donorName: e.target.value })}
+                        className="w-full p-2 border rounded-md bg-blue-100 text-black"
                     />
                 </div>
 
